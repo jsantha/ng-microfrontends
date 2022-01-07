@@ -52,28 +52,3 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.LOGIN_NETLIFY_SITE_ID }}
-
-  deploy:
-    needs:
-      - staging
-    environment:
-      name: netlify
-      url: ${{ steps.deploy_netlify.outputs.deploy-url }}
-    runs-on: ubuntu-latest
-    name: Deploy to Netlify
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: dist
-          path: apps/login/dist
-
-      - name: Deploy to Netlify
-        id: deploy_netlify
-        uses: nwtgck/actions-netlify@v1.2
-        with:
-          publish-dir: './apps/login/dist'
-          production-deploy: true
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.LOGIN_NETLIFY_SITE_ID }}
