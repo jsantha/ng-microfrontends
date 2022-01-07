@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
+import { loadRemoteModule } from './load-remote-module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,9 +13,8 @@ import { RouterModule } from '@angular/router';
       [
         {
           path: 'login',
-          loadChildren: () =>
-            import('login/Module').then((m) => m.RemoteEntryModule),
-        }
+          loadChildren: () => loadRemoteModule('login')
+        },
       ],
       { initialNavigation: 'enabledBlocking' }
     ),
