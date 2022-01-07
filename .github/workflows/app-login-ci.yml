@@ -17,7 +17,7 @@ jobs:
           cache: 'npm'
 
       - name: Install
-        run: npm ci
+        run: npm i
 
       - name: Build
         run: npx nx build login --configuration production
