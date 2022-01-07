@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "github-workflows",
+  "type": "object",
+  "properties": {},
+  "required": []
+}
