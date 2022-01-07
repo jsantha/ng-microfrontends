@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "projects": {},
-  "cli": {
-    "defaultCollection": "@nrwl/workspace"
+  "projects": {
+    "shell": "apps/shell",
+    "shell-e2e": "apps/shell-e2e"
   }
 }
