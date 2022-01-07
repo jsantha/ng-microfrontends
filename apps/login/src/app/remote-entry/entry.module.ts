@@ -17,4 +17,4 @@ import { RemoteEntryComponent } from './entry.component';
   ],
   providers: [],
 })
-export class RemoteEntryModule {}
+export class RemoteEntryModule {
