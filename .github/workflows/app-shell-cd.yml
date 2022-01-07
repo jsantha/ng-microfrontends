@@ -43,6 +43,9 @@ jobs:
           name: dist
           path: apps/shell/dist
 
+      - name: Use netlify modules.json
+        run: mv apps/shell/dist/assets/modules-netlify.json apps/shell/dist/assets/modules.json
+
       - name: Deploy to Netlify
         id: deploy_netlify
         uses: nwtgck/actions-netlify@v1.2
