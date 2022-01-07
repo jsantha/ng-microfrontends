@@ -25,6 +25,7 @@ jobs:
         uses: nrwl/nx-set-shas@v2
         with:
           main-branch-name: ${{ env.MAIN_BRANCH }}
+          error-on-no-successful-workflow: true
 
       - name: Use Node.js 14
         uses: actions/setup-node@v2
@@ -49,6 +50,7 @@ jobs:
         uses: nrwl/nx-set-shas@v2
         with:
           main-branch-name: ${{ env.MAIN_BRANCH }}
+          error-on-no-successful-workflow: true
 
       - name: Use Node.js 14
         uses: actions/setup-node@v2
