@@ -1,0 +1,5 @@
+/*.js
+  cache-control = "public, max-age=1209600"
+
+/*.css
+  cache-control = "public, max-age=1209600"

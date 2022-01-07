@@ -1,2 +1,11 @@
 /*
   Access-Control-Allow-Origin: https://ng-microfrontends.netlify.app
+
+/*.js
+  cache-control = "public, max-age=1209600"
+
+/*.css
+  cache-control = "public, max-age=1209600"
+
+/remoteEntry.js
+  cache-control = "public, max-age=0, must-revalidate"
