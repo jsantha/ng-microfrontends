@@ -1,13 +1,20 @@
 name: CI
 
+env:
+  MAIN_BRANCH: main
+
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
 
+# https://github.com/nrwl/nx-set-shas
 jobs:
-  build:
+  main:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name != 'pull_request' }}
 
-    # https://github.com/nrwl/nx-set-shas
     steps:
       - uses: actions/checkout@v2
         with:
@@ -16,6 +23,8 @@ jobs:
 
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v2
+        with:
+          main-branch-name: ${{ env.MAIN_BRANCH }}
 
       - name: Use Node.js 14
         uses: actions/setup-node@v2
@@ -23,12 +32,30 @@ jobs:
           node-version: 14
           cache: 'npm'
 
-      - name: Install
-        run: npm i
+      - run: npm i
+      - run: npx nx affected --target=build --parallel --max-parallel=3
+      - run: npx nx affected --target=test --parallel --max-parallel=2
 
-      - name: Build
-        run: npx nx affected --target=build --parallel --max-parallel=3
+  pr:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
 
-      - name: Test
-        run: npx nx affected --target=test --parallel --max-parallel=2
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+        with:
+          main-branch-name: ${{ env.MAIN_BRANCH }}
 
+      - name: Use Node.js 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: 'npm'
+
+      - run: npm i
+      - run: npx nx affected --target=build --parallel --max-parallel=3
+      - run: npx nx affected --target=test --parallel --max-parallel=2
