@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  build_and_deploy_job:
+  build:
     runs-on: ubuntu-latest
-    name: Build and Deploy Job
+    name: Build
     steps:
       - uses: actions/checkout@v2
 
@@ -14,11 +14,34 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14.x
+          cache: 'npm'
+
+      - name: Install
+        run: npm ci
 
       - name: Build
-        run: |
-          npm ci
-          npx nx build shell --configuration production
+        run: npx nx build shell --configuration production
+
+      - name: Publish Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: apps/shell/dist/
+
+  deploy:
+    needs:
+      - build
+    environment:
+      name: netlify
+      url: https://ng-microfrontends.netlify.app
+    runs-on: ubuntu-latest
+    name: Deploy to Netlify
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: apps/shell/dist
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2

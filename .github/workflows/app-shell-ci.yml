@@ -14,8 +14,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 14.x
+        cache: 'npm'
+
+    - name: Install
+      run: npm ci
 
     - name: Build
-      run: |
-        npm ci
-        npx nx build shell --configuration production
+      run: npx nx build shell --configuration production
+
