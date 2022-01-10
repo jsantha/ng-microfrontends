@@ -1,0 +1,10 @@
+# Application Shell
+# In this example, any change inside the `/apps/shell` directory
+# will require approval from @jsantha.
+/apps/shell @jsantha
+
+# Login Shell
+/apps/login/ @jsantha
+
+# Shared
+/libs/shared/ @jsantha
