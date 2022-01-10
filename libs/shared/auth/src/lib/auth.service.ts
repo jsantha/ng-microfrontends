@@ -20,6 +20,5 @@ export class AuthService {
   login(username: string, password: string) {
     this._username = username;
     this.status.next(AuthStatus.LoggedIn);
-    // trigger some change to apps
   }
 }
