@@ -9,7 +9,7 @@ import { map } from 'rxjs';
 })
 export class AppComponent {
   readonly currentUser$ = this.authService.status$.pipe(
-    map((status) =>
+    map(status =>
       status === AuthStatus.LoggedIn ? this.authService.username : null
     )
   );

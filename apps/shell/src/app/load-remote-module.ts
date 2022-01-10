@@ -1,4 +1,4 @@
-import { loadRemoteModule as mfLoadRemoteModule } from "@angular-architects/module-federation";
+import { loadRemoteModule as mfLoadRemoteModule } from '@angular-architects/module-federation';
 import { ajax } from 'rxjs/ajax';
 import { lastValueFrom, map, shareReplay } from 'rxjs';
 
@@ -8,11 +8,13 @@ const modulesConfig$ = ajax<Record<string, string>>('assets/modules.json').pipe(
 );
 
 export function loadRemoteModule(module: string) {
-  return lastValueFrom(modulesConfig$.pipe(
-    map(config => config[module])
-  )).then(remoteEntry => mfLoadRemoteModule({
-    type: 'module',
-    remoteEntry,
-    exposedModule: './Module'
-  })).then(m => m.RemoteEntryModule);
+  return lastValueFrom(modulesConfig$.pipe(map(config => config[module])))
+    .then(remoteEntry =>
+      mfLoadRemoteModule({
+        type: 'module',
+        remoteEntry,
+        exposedModule: './Module',
+      })
+    )
+    .then(m => m.RemoteEntryModule);
 }

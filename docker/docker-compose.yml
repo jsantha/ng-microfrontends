@@ -2,12 +2,12 @@ services:
   proxy:
     build: ./proxy
     ports:
-      - "4500:80"
+      - '4500:80'
   shell:
     build: ../apps/shell
     container_name: shell
     ports:
-      - "80"
+      - '80'
     volumes:
       - type: bind
         source: ./modules.json
@@ -16,4 +16,4 @@ services:
     build: ../apps/login
     container_name: login
     ports:
-      - "80"
+      - '80'

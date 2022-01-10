@@ -13,7 +13,7 @@ import { loadRemoteModule } from './load-remote-module';
       [
         {
           path: 'login',
-          loadChildren: () => loadRemoteModule('login')
+          loadChildren: () => loadRemoteModule('login'),
         },
       ],
       { initialNavigation: 'enabledBlocking' }

@@ -3,15 +3,15 @@
 Showcase of independently deployable, distributed development ready micro-frontends based on Angular
 and [Module Federation](https://webpack.js.org/concepts/module-federation/).
 
-
 ### Deployment status
 
 | App   | URL                                         | Status                                                                                                                                                                       |
-|-------|---------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ----- | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Shell | https://ng-microfrontends.netlify.app       | [![Netlify Status](https://api.netlify.com/api/v1/badges/092bb251-9521-44a6-88e7-bff082471fda/deploy-status)](https://app.netlify.com/sites/ng-microfrontends/deploys)       |
 | Login | https://ng-microfrontends-login.netlify.app | [![Netlify Status](https://api.netlify.com/api/v1/badges/e2f15c33-8aac-48d1-9344-c07ad60d3fec/deploy-status)](https://app.netlify.com/sites/ng-microfrontends-login/deploys) |
 
 ### Recommendations
+
 - Use monorepo for the whole application to keep all code at one place
 - Use monorepo to have a single set of dependencies and to have small and compatible runtimes
 - Use [nx.dev](https://nx.dev/) to get strong monorepo workspace tooling
@@ -71,9 +71,11 @@ Entry application responsible for loading each individual micro-frontend.
 ### Commands
 
 Generate github workflows for each application
+
 ```
 nx workspace-generator github-workflows
 ```
 
 ## TODO:
-- [ ] webpack utility to automatically register shared local libraries based on path (i.e. @microfrontends/shared/*) 
+
+- [ ] webpack utility to automatically register shared local libraries based on path (i.e. @microfrontends/shared/\*)

@@ -1,10 +1,10 @@
 import {
-  names,
   formatFiles,
-  Tree,
   generateFiles,
   getProjects,
   joinPathFragments,
+  names,
+  Tree,
 } from '@nrwl/devkit';
 
 interface Schema {}
@@ -12,12 +12,12 @@ interface Schema {}
 export default async function (tree: Tree, schema: Schema) {
   const projects = getProjects(tree);
   const mfes = Array.from(projects.entries()).filter(
-    ([name, config]) =>
+    ([_, config]) =>
       config.projectType === 'application' &&
       (config as any).prefix === 'microfrontends'
   );
 
-  const mfeNames = mfes.map((x) => x[0]).filter((x) => x !== 'shell');
+  const mfeNames = mfes.map(x => x[0]).filter(x => x !== 'shell');
 
   for (const mfe of mfeNames) {
     generateFiles(
