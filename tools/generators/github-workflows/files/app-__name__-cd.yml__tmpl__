@@ -10,14 +10,23 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Use Node.js 14.x
+      - name: Use Node.js 14
         uses: actions/setup-node@v2
         with:
-          node-version: 14.x
-          cache: 'npm'
+          node-version: 14
 
-      - name: Install
-        run: npm i
+      - name: Cache node modules
+        id: cache-nodemodules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - run: npm ci
+        if: steps.cache-nodemodules.outputs.cache-hit != 'true'
 
       - name: Build
         run: npx nx build <%= name %> --configuration production
