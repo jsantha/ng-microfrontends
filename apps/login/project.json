@@ -105,8 +105,5 @@
       }
     }
   },
-  "tags": [
-    "scope:login",
-    "type:shell"
-  ]
+  "tags": ["scope:login", "type:shell"]
 }

@@ -1,6 +1,7 @@
-# Micro-frontends
+# Angular Micro-Frontends
 
-Showcase of independently deployable, distributed development ready micro-frontends in Angular.
+Showcase of independently deployable, distributed development ready micro-frontends based on Angular
+and [Module Federation](https://webpack.js.org/concepts/module-federation/).
 
 
 ### Deployment status
@@ -11,13 +12,14 @@ Showcase of independently deployable, distributed development ready micro-fronte
 | Login | https://ng-microfrontends-login.netlify.app | [![Netlify Status](https://api.netlify.com/api/v1/badges/e2f15c33-8aac-48d1-9344-c07ad60d3fec/deploy-status)](https://app.netlify.com/sites/ng-microfrontends-login/deploys) |
 
 ### Recommendations
-- Use monorepo for whole application to have all code at one place
-- Use monorepo to have single set of dependencies and to have runtimes small and compatible
-- Use [nx.dev](https://nx.dev/) or other strong monorepo workspace tool
+- Use monorepo for the whole application to keep all code at one place
+- Use monorepo to have a single set of dependencies and to have small and compatible runtimes
+- Use [nx.dev](https://nx.dev/) to get strong monorepo workspace tooling
 - Create and enforce dependency boundaries via [nx.dev/structure/monorepo-tags](https://nx.dev/structure/monorepo-tags)
-- Use dependency graph to have better understanding of workspace architecture [nx.dev/structure/dependency-graph](https://nx.dev/structure/dependency-graph)
+- Use dependency graph to have a better understanding of workspace architecture [nx.dev/structure/dependency-graph](https://nx.dev/structure/dependency-graph)
 - Leverage [nx affected](https://nx.dev/using-nx/affected) to build fast and scalable integration/deployment pipelines
 - Use [code ownership](https://nx.dev/guides/monorepo-nx-enterprise#code-ownership)
+- Use [workspace generators](https://nx.dev/generators/workspace-generators) to simplify and standardize work in a distributed environment
 
 ### Running in docker
 
@@ -30,18 +32,6 @@ nx run shell:serve-mfe
 ```
 
 # Architecture overview
-
-## NX workspace in monorepo
-
-## Application shell
-
-`apps/shell`
-
-Entry application responsible for loading each individual micro-frontend.
-
-## Micro-frontend internals
-
-## Module Federation Plugin
 
 ## Environment agnostic build
 
@@ -60,6 +50,18 @@ by the current set of changes.
 
 In this showcase, after each commit to the `main` branch and successful CI, deployment automatically triggers
 for each affected application.
+
+## NX workspace
+
+## Application shell
+
+`apps/shell`
+
+Entry application responsible for loading each individual micro-frontend.
+
+## Micro-frontend internals
+
+## Module Federation
 
 ## Checklist
 

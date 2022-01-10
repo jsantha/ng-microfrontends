@@ -110,7 +110,5 @@
       }
     }
   },
-  "tags": [
-    "scope:app"
-  ]
+  "tags": ["scope:app"]
 }

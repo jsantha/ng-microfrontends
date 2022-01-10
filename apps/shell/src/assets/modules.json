@@ -1,3 +1,4 @@
 {
-  "login": "http://localhost:4201/remoteEntry.js"
+  "login": "http://localhost:4201/remoteEntry.js",
+  "catalogue": "http://localhost:4202/remoteEntry.js"
 }
