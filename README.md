@@ -2,11 +2,6 @@
 
 Showcase of independently deployable, distributed development ready micro-frontends in Angular.
 
-## Pros
-- independent deployment
-- scalable CI
-
-## Cons
 
 ### Deployment status
 
@@ -14,6 +9,15 @@ Showcase of independently deployable, distributed development ready micro-fronte
 |-------|---------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Shell | https://ng-microfrontends.netlify.app       | [![Netlify Status](https://api.netlify.com/api/v1/badges/092bb251-9521-44a6-88e7-bff082471fda/deploy-status)](https://app.netlify.com/sites/ng-microfrontends/deploys)       |
 | Login | https://ng-microfrontends-login.netlify.app | [![Netlify Status](https://api.netlify.com/api/v1/badges/e2f15c33-8aac-48d1-9344-c07ad60d3fec/deploy-status)](https://app.netlify.com/sites/ng-microfrontends-login/deploys) |
+
+### Recommendations
+- Use monorepo for whole application to have all code at one place
+- Use monorepo to have single set of dependencies and to have runtimes small and compatible
+- Use [nx.dev](https://nx.dev/) or other strong monorepo workspace tool
+- Create and enforce dependency boundaries via [nx.dev/structure/monorepo-tags](https://nx.dev/structure/monorepo-tags)
+- Use dependency graph to have better understanding of workspace architecture [nx.dev/structure/dependency-graph](https://nx.dev/structure/dependency-graph)
+- Leverage [nx affected](https://nx.dev/using-nx/affected) to build fast and scalable integration/deployment pipelines
+- Use [code ownership](https://nx.dev/guides/monorepo-nx-enterprise#code-ownership)
 
 ### Running in docker
 
@@ -47,11 +51,15 @@ micro-frontend is hosted.
 ## Continuous Integration (CI)
 
 Nx affected command greatly improves scalability of monorepos. With this command we are able
-to detect which projects has been affected by the changes between the base and the head.
+to detect which projects have been affected by the changes between the base and the head.
 
 ## Deployment
 
-`nx affected:apps --plain`
+With `nx affected:apps --plain` we can dynamically deploy only those apps that are affected
+by the current set of changes.
+
+In this showcase, after each commit to the `main` branch and successful CI, deployment automatically triggers
+for each affected application.
 
 ## Checklist
 
