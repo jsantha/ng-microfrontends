@@ -20,9 +20,7 @@ const workspaceRootPath = path.join(__dirname, '../../');
 const sharedMappings = new mf.SharedMappings();
 sharedMappings.register(
   tsConfigPath,
-  [
-    /* mapped paths to share */
-  ],
+  ['@microfrontends/shared/auth'],
   workspaceRootPath
 );
 

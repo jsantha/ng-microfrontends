@@ -34,6 +34,7 @@ jobs:
           cache: 'npm'
 
       - run: npm i
+      - run: npx nx affected --target=lint --parallel --max-parallel=3
       - run: npx nx affected --target=build --parallel --max-parallel=3
       - run: npx nx affected --target=test --parallel --max-parallel=2
 
@@ -59,5 +60,6 @@ jobs:
           cache: 'npm'
 
       - run: npm i
+      - run: npx nx affected --target=lint --parallel --max-parallel=3
       - run: npx nx affected --target=build --parallel --max-parallel=3
       - run: npx nx affected --target=test --parallel --max-parallel=2
