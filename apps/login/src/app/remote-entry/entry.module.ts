@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { RemoteEntryComponent } from './entry.component';
 import { FormsModule } from '@angular/forms';
-import { BuildInfoModule } from '@microfrontends/shared/utils';
+import { AreaDbgModule, BuildInfoModule } from '@microfrontends/shared/utils';
 
 @NgModule({
   declarations: [RemoteEntryComponent],
@@ -12,6 +12,7 @@ import { BuildInfoModule } from '@microfrontends/shared/utils';
     CommonModule,
     FormsModule,
     BuildInfoModule,
+    AreaDbgModule,
     RouterModule.forChild([
       {
         path: '',

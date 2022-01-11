@@ -1,8 +1,8 @@
-<h1>Application Shell</h1>
+<microfrontends-area-dbg name="apps/shell" [builtAt]="builtAt" [revision]="revision">
+  <h1>MFE Showcase</h1>
 
-<p>LoggedUser: {{ currentUser$ | async }}</p>
+  <p>LoggedUser: {{ currentUser$ | async }}</p>
 
-<a routerLink="login">login</a>
-<router-outlet></router-outlet>
-
-<microfrontends-build-info name="shell" [builtAt]="builtAt" [revision]="revision"></microfrontends-build-info>
+  <a routerLink="login">login</a>
+  <router-outlet></router-outlet>
+</microfrontends-area-dbg>

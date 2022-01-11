@@ -5,21 +5,21 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'microfrontends-login-entry',
   template: `
-    <form>
-      <div>Username: <input name="username" [(ngModel)]="username" /></div>
-      <div>
-        Password:
-        <input name="password" type="password" [(ngModel)]="password" />
-      </div>
-      <button (click)="login(username!, password!)">Login</button>
-    </form>
-    <microfrontends-build-info
-      name="login"
+    <microfrontends-area-dbg
+      name="apps/login"
       [builtAt]="builtAt"
       [revision]="revision"
-    ></microfrontends-build-info>
+    >
+      <form>
+        <div>Username: <input name="username" [(ngModel)]="username" /></div>
+        <div>
+          Password:
+          <input name="password" type="password" [(ngModel)]="password" />
+        </div>
+        <button (click)="login(username!, password!)">Login</button>
+      </form>
+    </microfrontends-area-dbg>
   `,
-  styleUrls: ['./entry.component.scss'],
 })
 export class RemoteEntryComponent {
   readonly builtAt = BUILT_AT;

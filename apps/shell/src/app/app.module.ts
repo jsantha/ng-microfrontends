@@ -4,13 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { loadRemoteModule } from './load-remote-module';
-import { BuildInfoModule } from '@microfrontends/shared/utils';
+import { AreaDbgModule, BuildInfoModule } from '@microfrontends/shared/utils';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     BuildInfoModule,
+    AreaDbgModule,
     RouterModule.forRoot(
       [
         {

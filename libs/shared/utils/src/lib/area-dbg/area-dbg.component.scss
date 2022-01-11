@@ -1,0 +1,29 @@
+.area-dbg {
+  position: relative;
+  display: block;
+  padding: 30px 15px 0;
+  border: 1px solid #f35353;
+
+  .build-info {
+    margin-top: 15px;
+  }
+
+  span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 3px;
+    color: #fff;
+    background: #f35353;
+    font-family: monospace;
+    font-size: 12px;
+  }
+
+  .area-dbg {
+    border-color: #15c554;
+
+    span {
+      background: #15c554;
+    }
+  }
+}
