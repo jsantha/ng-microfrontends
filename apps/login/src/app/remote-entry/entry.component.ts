@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
       [builtAt]="builtAt"
       [revision]="revision"
     >
+      <h2>Login</h2>
       <form>
         <div>Username: <input name="username" [(ngModel)]="username" /></div>
         <div>
