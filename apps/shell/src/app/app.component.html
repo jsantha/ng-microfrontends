@@ -1,7 +1,7 @@
 <microfrontends-area-dbg name="apps/shell" [builtAt]="builtAt" [revision]="revision">
   <h1>MFE Showcase</h1>
 
-  <p>LoggedUser: {{ currentUser$ | async }}</p>
+  <p *ngIf="currentUser$ | async as currentUser">LoggedUser: {{ currentUser }}</p>
 
   <a routerLink="login">login</a>
   <router-outlet></router-outlet>
