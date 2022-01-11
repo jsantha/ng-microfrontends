@@ -13,10 +13,18 @@ import { Router } from '@angular/router';
       </div>
       <button (click)="login(username!, password!)">Login</button>
     </form>
+    <microfrontends-build-info
+      name="login"
+      [builtAt]="builtAt"
+      [revision]="revision"
+    ></microfrontends-build-info>
   `,
   styleUrls: ['./entry.component.scss'],
 })
 export class RemoteEntryComponent {
+  readonly builtAt = BUILT_AT;
+  readonly revision = GIT_SHA;
+
   username?: string;
   password?: string;
 

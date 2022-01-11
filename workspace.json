@@ -4,6 +4,7 @@
     "login": "apps/login",
     "login-e2e": "apps/login-e2e",
     "shared-auth": "libs/shared/auth",
+    "shared-utils": "libs/shared/utils",
     "shell": "apps/shell",
     "shell-e2e": "apps/shell-e2e"
   }

@@ -1,6 +1,7 @@
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const mf = require('@angular-architects/module-federation/webpack');
 const path = require('path');
+const { DefinePlugin } = require('webpack');
 const share = mf.share;
 
 /**
@@ -41,6 +42,10 @@ module.exports = {
     },
   },
   plugins: [
+    new DefinePlugin({
+      BUILT_AT: DefinePlugin.runtimeValue(Date.now),
+      GIT_SHA: JSON.stringify(process.env.GITHUB_SHA),
+    }),
     new ModuleFederationPlugin({
       remotes: {},
       shared: share({

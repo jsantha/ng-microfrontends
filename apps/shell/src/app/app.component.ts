@@ -8,6 +8,9 @@ import { map } from 'rxjs';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  readonly builtAt = BUILT_AT;
+  readonly revision = GIT_SHA;
+
   readonly currentUser$ = this.authService.status$.pipe(
     map(status =>
       status === AuthStatus.LoggedIn ? this.authService.username : null
