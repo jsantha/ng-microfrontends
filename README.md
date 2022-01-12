@@ -37,13 +37,14 @@ nx run shell:serve-mfe
 
 Real game-changer to a micro-frontend world. This webpack module allows loading
 separate builds that are developed and deployed individually. These separate builds
-can share dependencies and thus, with the proper configuration, can achieve great
-results in form of optimized and small builds that share libraries or your framework
-code.
+can share dependencies and can achieve (if properly configured) great results in
+a form of optimized and small builds assuming single SPA framework and dependency set
+is used.
 
-Your host application can be truly dynamic in a way that the host does not need to know
-how many remotes exist upfront (at compile time) and can resolve this information at
-runtime and thus enabling extending system without re-deploying whole application.
+Your host application can be truly dynamic in a way that the host does not need to 
+know how many remotes exist upfront (at compile time) and can resolve this information
+at runtime and thus enabling extending the system without redeploying the whole
+application.
 
 ## Dynamic Module Federation
 
@@ -51,13 +52,17 @@ In this showcase `Shell` application fetches `modules.json` during runtime to kn
 each individual micro-frontend is hosted to enable environment agnostic builds and much 
 more. The `modules.json` can be more than a static definition, it can be replaced by a
 backend endpoint that returns remote endpoints together with their description (menu 
-title, icon etc.) that the host uses to render a dynamic menu and effectively create a plugin
+title, icon, etc.) that the host uses to render a dynamic menu and effectively create a plugin
 based system.
 
 ## Continuous Integration (CI)
 
-Nx affected command greatly improves scalability of a monorepo. With this command we are able
+Nx [affected](https://nx.dev/using-nx/affected) command greatly improves scalability of a monorepo. With this command we are able
 to detect which projects have been affected by the changes between the base and the head.
+
+Note: for correct behaviour you need to set up BASE and HEAD SHAs correctly during pipeline
+run. For GitHub actions you can use [nrwl/nx-set-shas](https://github.com/nrwl/nx-set-shas) and take
+a look at `.github/workflows/ci.yml` for inspiration.
 
 ## Deployment
 
